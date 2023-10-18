@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["image_preview.nvim"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/image_preview.nvim",
+    url = "https://github.com/adelarsq/image_preview.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -123,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -164,6 +174,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-flutter"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/vim-flutter",
+    url = "https://github.com/thosakwe/vim-flutter"
   },
   ["vim-fugitive"] = {
     loaded = true,

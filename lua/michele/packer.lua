@@ -53,5 +53,6 @@ use {
 
 use('dart-lang/dart-vim-plugin')
 use('thosakwe/vim-flutter')
-
+use 'mfussenegger/nvim-dap'
+use 'https://github.com/adelarsq/image_preview.nvim'
 end)
