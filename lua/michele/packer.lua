@@ -28,7 +28,6 @@ use('tpope/vim-fugitive')
 -- LSP --
 use {
 	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v3.x',
 	requires = {
 		--- Uncomment these if you want to manage LSP servers from neovim
 		{'williamboman/mason.nvim'},
@@ -42,5 +41,17 @@ use {
 		{'L3MON4D3/LuaSnip'},
 	}
 }
+
+-- LSP Flutter --
+use {
+    'akinsho/flutter-tools.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+}
+
+use('dart-lang/dart-vim-plugin')
+use('thosakwe/vim-flutter')
 
 end)

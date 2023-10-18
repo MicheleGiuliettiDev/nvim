@@ -84,6 +84,21 @@ _G.packer_plugins = {
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["dart-vim-plugin"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["flutter-tools.nvim"] = {
+    loaded = true,
+    path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    url = "https://github.com/akinsho/flutter-tools.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/m.giulietti@teamdev.it/.local/share/nvim/site/pack/packer/start/harpoon",

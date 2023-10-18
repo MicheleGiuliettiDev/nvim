@@ -1,24 +1,29 @@
-local lsp = require('lsp-zero')
+local lsp = require("lsp-zero")
 
-lsp.preset("reccomended")
+lsp.preset("recommended")
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mapping = lsp.defaults.cmp_mappings({
-	['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({select = true}),
-	['<C-Space>'] = cmp.mapping.complete(),
-});
+local cmp_mappings = lsp.defaults.cmp_mappings({
+  ['<UP>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<DOWN>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<cr>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-Space>"] = cmp.mapping.complete(),
+  ['<Esc>'] = cmp.mapping.abort(),
+})
+
+cmp.setup({
+  mapping = cmp_mappings
+})
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  suggest_lsp_servers = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -37,9 +42,16 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-require('mason').setup()
-require('mason-lspconfig').setup()
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'tsserver', 'rust_analyzer'},
+  handlers = {
+    lsp.default_setup,
+  }
+})
 
 vim.diagnostic.config({
-    virtual_text = true
+  virtual_text = true
 })
+
