@@ -13,7 +13,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 cmp.setup({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  sources = {
+    name = 'nvim_lsp_signature_help'
+  }
 })
 
 lsp.set_preferences({
