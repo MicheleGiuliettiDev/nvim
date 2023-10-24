@@ -24,7 +24,7 @@ use('nvim-treesitter/playground')
 use('ThePrimeagen/harpoon')
 use 'mbbill/undotree'
 use('tpope/vim-fugitive')
-
+use('f-person/git-blame.nvim')
 -- LSP --
 use {
 	'VonHeikemen/lsp-zero.nvim',
