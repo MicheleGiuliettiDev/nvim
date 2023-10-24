@@ -3,7 +3,7 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<UP>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<DOWN>'] = cmp.mapping.select_next_item(cmp_select),
@@ -13,10 +13,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 cmp.setup({
-  mapping = cmp_mappings,
-  sources = {
-    name = 'nvim_lsp_signature_help'
-  }
+  mapping = cmp_mappings
 })
 
 lsp.set_preferences({
@@ -30,7 +27,7 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -48,13 +45,37 @@ lsp.setup()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer'},
+  ensure_installed = { 'tsserver', 'rust_analyzer' },
   handlers = {
     lsp.default_setup,
   }
 })
 
 vim.diagnostic.config({
-  virtual_text = true
+  virtual_text = false, -- Turn off inline diagnostics
 })
 
+-- Use this if you want it to automatically show all diagnostics on the
+-- current line in a floating window. Personally, I find this a bit
+-- distracting and prefer to manually trigger it (see below). The
+-- CursorHold event happens when after `updatetime` milliseconds. The
+-- default is 4000 which is much too long
+vim.o.updatetime = 300
+
+-- Show all diagnostics on current line in floating window
+vim.api.nvim_set_keymap(
+  'n', '<Leader>df', ':lua vim.diagnostic.open_float()<CR>', 
+  { noremap = true, silent = true }
+)
+-- Go to next diagnostic (if there are multiple on the same line, only shows
+-- one at a time in the floating window)
+vim.api.nvim_set_keymap(
+  'n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>',
+  { noremap = true, silent = true }
+)
+-- Go to prev diagnostic (if there are multiple on the same line, only shows
+-- one at a time in the floating window)
+vim.api.nvim_set_keymap(
+  'n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>',
+  { noremap = true, silent = true }
+)
