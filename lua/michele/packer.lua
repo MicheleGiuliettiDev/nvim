@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
     'akinsho/flutter-tools.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim',   -- optional for vim.ui.select
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
   }
 
@@ -59,4 +59,5 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use 'https://github.com/adelarsq/image_preview.nvim'
+  use('junegunn/gv.vim')
 end)
