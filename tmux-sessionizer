@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Projects/Wisetown/frontend ~/Projects/Wisetown/frontend/modules ~/Projects/Wisetown/backend ~/Projects/Wisetown/mobile  ~/.config/ ~/Projects ~/Projects/Wisetown ~/GithubProjects -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/Projects/Wisetown/frontend ~/Projects/Wisetown/frontend/modules ~/Projects/Wisetown/backend ~/Projects/Wisetown/mobile  ~/.config/ ~/Projects ~/Projects/Wisetown ~/GithubProjects ~/Projects/Wisetown/frontend/frontend_root_project/modules ~/Projects/Wisetown/backend/backend_root_project -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
