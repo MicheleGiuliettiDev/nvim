@@ -12,6 +12,7 @@ require("flutter-tools").setup {
     enabled = true,
     run_via_dap = false,
   },
+  flutter_path = "/home/michele/snap/flutter/common/flutter/bin/cache/dart-sdk/bin/dart",
   lsp = {
     color = {enabled = true},
     settings = {
