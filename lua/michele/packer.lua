@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Codeium --
+  use 'Exafunction/codeium.vim'
+
   -- LSP Flutter --
   use {
     'akinsho/flutter-tools.nvim',
