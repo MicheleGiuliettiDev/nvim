@@ -15,19 +15,22 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
+  use {
+    'folke/tokyonight.nvim',
     config = function()
-      vim.cmd('colorscheme rose-pine')
+      -- Optionally configure the theme here
+      vim.cmd('colorscheme tokyonight')
     end
-  })
+  }
+
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
   use('ThePrimeagen/harpoon')
   use 'mbbill/undotree'
   use('tpope/vim-fugitive')
   use('f-person/git-blame.nvim')
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+
   -- LSP --
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -60,7 +63,6 @@ return require('packer').startup(function(use)
   use('dart-lang/dart-vim-plugin')
   use('thosakwe/vim-flutter')
   use 'mfussenegger/nvim-dap'
-  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use 'https://github.com/adelarsq/image_preview.nvim'
   use('junegunn/gv.vim')
 end)
