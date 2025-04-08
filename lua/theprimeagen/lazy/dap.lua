@@ -38,6 +38,7 @@ return {
 
     -- Enable virtual text
     vim.g.dap_virtual_text = true
+
     -- Dart Debug Adapter
     dap.adapters.dart = {
       type = "executable",
@@ -73,6 +74,22 @@ return {
       }
     }
 
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = vim.fn.expand("~") .. '/netcoredbg/netcoredbg',
+      args = { '--interpreter=vscode' }
+    }
+
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+        end,
+      },
+    }
     -- Optional: Load `.vscode/launch.json` if available
     require("dap.ext.vscode").load_launchjs(nil, { dart = { "dart" } })
   end,
