@@ -30,6 +30,7 @@ return {
         "rust_analyzer",
         "ts_ls",
         "csharp_ls",
+        "volar",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -51,7 +52,60 @@ return {
             }
           }
         end,
-
+        ["ts_ls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.ts_ls.setup({
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            init_options = {
+              plugins = { -- I think this was my breakthrough that made it work
+                {
+                  name = "@vue/typescript-plugin",
+                  location = "/usr/local/lib/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                },
+              },
+            },
+            settings = {
+              typescript = {
+                tsserver = { useSyntaxServer = false },
+                inlayHints = {
+                  includeInlayParameterNameHints = 'all',
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayVariableTypeHints = true,
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
+              },
+            },
+          })
+        end,
+        ["volar"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.volar.setup({
+            init_options = {
+              vue = {
+                hybridMode = false,
+              },
+            },
+            settings = {
+              typescript = {
+                inlayHints = {
+                  enumMemberValues = { enabled = true },
+                  functionLikeReturnTypes = { enabled = true },
+                  propertyDeclarationTypes = { enabled = true },
+                  parameterTypes = {
+                    enabled = true,
+                    suppressWhenArgumentMatchesName = true,
+                  },
+                  variableTypes = { enabled = true },
+                },
+              },
+            },
+          })
+        end
       }
     })
 
