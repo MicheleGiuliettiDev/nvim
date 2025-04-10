@@ -19,9 +19,6 @@ return {
         filetypes = { "html", "markdown", "css", "typescript" },
       },
 
-      -- Lua
-      b.formatting.stylua,
-
       -- cpp
       b.formatting.clang_format,
       null_ls.builtins.formatting.prettier,

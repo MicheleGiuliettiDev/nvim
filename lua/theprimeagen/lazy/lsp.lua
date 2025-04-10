@@ -85,6 +85,10 @@ return {
         ["volar"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.volar.setup({
+            on_attach = function(client)
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+            end,
             init_options = {
               vue = {
                 hybridMode = false,
