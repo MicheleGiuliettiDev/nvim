@@ -54,5 +54,8 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
 
+-- select all
+vim.keymap.set("n", "<leader>sa", "ggVG")
+
 -- vim.keymap.set('n', '<leader>rf', require('telescope').extensions.flutter.commands,
 -- { desc = 'Open Flutter commands' })
