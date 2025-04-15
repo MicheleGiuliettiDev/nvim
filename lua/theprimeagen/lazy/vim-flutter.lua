@@ -1,0 +1,3 @@
+return {
+  'thosakwe/vim-flutter'
+}
