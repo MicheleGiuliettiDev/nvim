@@ -1,0 +1,4 @@
+
+Error detected while processing command line:
+E5107: Error loading lua [string ":lua"]:1: ')' expected near '<eof>'
+[null-ls] failed to load builtin eslint for method diagnostics; please check your config
