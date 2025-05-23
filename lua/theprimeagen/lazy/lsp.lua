@@ -30,7 +30,7 @@ return {
         "rust_analyzer",
         "ts_ls",
         "csharp_ls",
-        "volar",
+        "vue_ls",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -82,9 +82,9 @@ return {
             },
           })
         end,
-        ["volar"] = function()
+        ["vue_ls"] = function()
           local lspconfig = require("lspconfig")
-          lspconfig.volar.setup({
+          lspconfig.vue_ls.setup({
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
               client.server_capabilities.documentRangeFormattingProvider = false
