@@ -34,13 +34,13 @@ return {
       },
       handlers = {
         function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {
+          vim.config.lspconfig[server_name].setup {
             capabilities = capabilities
           }
         end,
 
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
+          local lspconfig = vim.config.lspconfig
           lspconfig.lua_ls.setup {
             capabilities = capabilities,
             settings = {
@@ -53,7 +53,7 @@ return {
           }
         end,
         ["ts_ls"] = function()
-          local lspconfig = require("lspconfig")
+          local lspconfig = vim.config.lspconfig
           lspconfig.ts_ls.setup({
             filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
             init_options = {
@@ -83,7 +83,7 @@ return {
           })
         end,
         ["vue_ls"] = function()
-          local lspconfig = require("lspconfig")
+          local lspconfig = vim.config.lspconfig
           lspconfig.vue_ls.setup({
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
