@@ -11,7 +11,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				cs = { "csharpier" },
-				csproj = { "csharpier" },
+				csproj = { "prettierd" },
 				lua = { "stylua" },
 				dart = { "dart_format" },
 				go = { "gofmt" },
